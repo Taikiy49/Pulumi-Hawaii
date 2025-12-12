@@ -1,9 +1,8 @@
 .ftr {
-  width: 100%;
   margin-top: auto;
   padding: var(--xl) 0;
-  border-top: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.60);
+  background: rgba(243, 247, 252, 0.72);
+  border-top: 1px solid var(--line);
 }
 
 .ftr-inner {

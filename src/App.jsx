@@ -19,10 +19,11 @@ export default function App() {
 
       <Header lang={lang} setLang={setLang} t={t} />
 
-      {/* Full-width sections with centered content */}
-      <Hero t={t} />
-      <Services t={t} />
-      <Contact t={t} />
+      <main className="app-main">
+        <Hero lang={lang} t={t} />
+        <Services lang={lang} t={t} />
+        <Contact lang={lang} t={t} />
+      </main>
 
       <Footer t={t} />
     </div>

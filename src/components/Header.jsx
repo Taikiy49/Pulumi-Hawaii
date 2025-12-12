@@ -6,53 +6,48 @@ export default function Header({ lang, setLang, t }) {
 
   return (
     <header className="hdr">
-      <div className="hdr-top">
-        <div className="container hdr-top-inner">
-          <div className="hdr-top-left">
-            <span className="hdr-pill">Free Estimates</span>
-            <span className="hdr-dot">•</span>
-            <span className="hdr-miniText">
-              Oʻahu • Cleaning & Property Care
-            </span>
-          </div>
+      <div className="hdr-glass">
+        <div className="container">
+          <div className="hdr-row">
+            <div className="hdr-left">
+              <img className="hdr-logo" src="/pulumi-logo.png" alt="Pulumi logo" />
+              <div className="hdr-text">
+                <div className="hdr-top">
+                  <h1 className="hdr-brand">{t.brand}</h1>
+                  <LangToggle isJa={isJa} setLang={setLang} />
+                </div>
+                <div className="hdr-tagline">{t.tagline}</div>
+                <div className="hdr-meta">
+                  <span className="hdr-name">{t.name}</span>
+                  <span className="hdr-dot">•</span>
+                  <span>{t.title}</span>
+                </div>
+              </div>
+            </div>
 
-          <div className="hdr-top-right">
-            <a className="hdr-link" href="mailto:pulumihawaii@gmail.com">
-              Email
-            </a>
-            <a className="hdr-link" href="tel:+18082277729">
-              Call
-            </a>
+            <div className="hdr-actions">
+              <a className="hdr-action hdr-actionPrimary" href={`mailto:${t.email}`}>
+                Email
+              </a>
+              <a className="hdr-action" href="tel:+18082277729">
+                Call
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="hdr-main">
-        <div className="container hdr-main-inner">
-          <div className="hdr-left">
-            <img
-              className="hdr-logo"
-              src="/pulumi-logo.png"
-              alt="Pulumi logo"
-            />
-
-            <div className="hdr-text">
-              <div className="hdr-row">
-                <h1 className="hdr-brand">{t.brand}</h1>
-                <LangToggle isJa={isJa} setLang={setLang} />
-              </div>
-
-              <div className="hdr-tagline">{t.tagline}</div>
-
-              <div className="hdr-person">
-                <span className="hdr-name">{t.name}</span>
-                <span className="hdr-personDot">•</span>
-                <span className="hdr-role">{t.title}</span>
-              </div>
-            </div>
+      <div className="hdr-strip">
+        <div className="container">
+          <div className="hdr-stripRow">
+            <span className="hdr-pill">{isJa ? "見積無料" : "Free Estimates"}</span>
+            <span className="hdr-stripText">
+              {isJa ? "オアフ • 清掃・点検・物件ケア" : "Oʻahu • Cleaning • Inspection • Property Care"}
+            </span>
+            <span className="hdr-stripRight">
+              {isJa ? "丁寧・確実" : "Trusted & Detailed"}
+            </span>
           </div>
-
-          <div className="hdr-divider" />
         </div>
       </div>
     </header>
@@ -62,16 +57,17 @@ export default function Header({ lang, setLang, t }) {
 function LangToggle({ isJa, setLang }) {
   return (
     <div className="hdr-toggle" role="group" aria-label="Language">
-      <span className={`hdr-toggle-label ${!isJa ? "on" : ""}`}>EN</span>
-      <label className="hdr-switch">
+      <span className={`hdr-toggleLabel ${!isJa ? "on" : ""}`}>EN</span>
+      <label className="hdr-switch" title="Toggle language">
         <input
           type="checkbox"
           checked={isJa}
           onChange={() => setLang(isJa ? "en" : "ja")}
+          aria-label="Toggle English/Japanese"
         />
         <span className="hdr-slider" />
       </label>
-      <span className={`hdr-toggle-label ${isJa ? "on" : ""}`}>JP</span>
+      <span className={`hdr-toggleLabel ${isJa ? "on" : ""}`}>JP</span>
     </div>
   );
 }
