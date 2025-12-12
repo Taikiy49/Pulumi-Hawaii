@@ -1,0 +1,222 @@
+:root {
+  /* Colors — clean & professional */
+  --bg0: #f9fcff;
+  --bg1: #eef6ff;
+  --surface: rgba(255, 255, 255, 0.86);
+  --surface2: rgba(255, 255, 255, 0.94);
+  --border: rgba(12, 30, 52, 0.07);
+
+  --text: #0c1e34;
+  --muted: rgba(12, 30, 52, 0.58);
+  --muted2: rgba(12, 30, 52, 0.44);
+
+  /* Brand accents — subtle cleaning feel */
+  --primary: #27b5ff;   /* sky */
+  --primary2: #22c7a6;  /* mint/teal */
+  --primary3: #6c7cff;  /* minimal accent */
+
+  /* Shadows (lighter) */
+  --shadow-sm: 0 6px 16px rgba(12, 30, 52, 0.10);
+  --shadow-md: 0 14px 32px rgba(12, 30, 52, 0.14);
+
+  /* Radii */
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+
+  /* Spacing scale (TIGHTER) */
+  --xs: 4px;
+  --s: 8px;
+  --m: 12px;
+  --l: 16px;
+  --xl: 20px;
+  --xxl: 26px;
+
+  /* Typography (smaller overall) */
+  --fs-xs: 11px;
+  --fs-s: 12px;
+  --fs-m: 13px;
+  --fs-l: 15px;
+  --fs-xl: 18px;
+  --fs-xxl: 24px;
+
+  --fw-regular: 500;
+  --fw-semibold: 650;
+  --fw-bold: 750;
+
+  /* Layout */
+  --maxw: 1100px;
+}
+
+/* =========================
+   RESET / BASE
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg0), var(--bg1));
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================
+   APP LAYOUT (UPDATED)
+   ========================= */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Soft “clean” background blobs */
+.app-bg {
+  position: fixed;
+  inset: -200px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(34, 199, 166, 0.18), transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(31, 182, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 55% 85%, rgba(106, 124, 255, 0.10), transparent 60%);
+  filter: blur(4px);
+}
+
+/* =========================
+   GLOBAL LAYOUT HELPERS
+   ========================= */
+.container {
+  max-width: var(--maxw);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--xl);
+}
+
+/* Full-width sections so it doesn't look like "little blocks" */
+.section {
+  width: 100%;
+  padding: var(--xxl) 0;
+}
+
+.section-tight {
+  padding: var(--xl) 0;
+}
+
+.section-title {
+  margin: 0 0 var(--m);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.02em;
+}
+
+.section-subtitle {
+  margin: 0 0 var(--xl);
+  font-size: var(--fs-m);
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+/* =========================
+   COMMON UI
+   ========================= */
+
+/* Common card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(12px);
+}
+
+.card-soft {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--xs);
+  padding: 11px 14px;
+  border-radius: var(--r-md);
+  text-decoration: none;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  color: white;
+  background: linear-gradient(135deg, var(--primary2), var(--primary));
+  box-shadow: 0 16px 30px rgba(34, 199, 166, 0.22);
+}
+
+.btn-ghost {
+  color: var(--text);
+  background: var(--surface2);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Chips */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s);
+  margin-top: var(--m);
+}
+
+.chip {
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(34, 199, 166, 0.10);
+  border: 1px solid rgba(34, 199, 166, 0.18);
+  font-size: var(--fs-xs);
+  color: rgba(12, 30, 52, 0.75);
+  font-weight: var(--fw-semibold);
+}
+
+/* Footer helper: keeps footer from floating weirdly */
+.ftr {
+  margin-top: auto;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 680px) {
+  .container {
+    padding: 0 var(--l);
+  }
+  .section {
+    padding: var(--xl) 0;
+  }
+}
